@@ -107,7 +107,7 @@ class Rocket(BaseModel):
     company: str
 
 class FlightResponseData(BaseModel):
-    is_success: bool
+    is_success: Optional[bool]
     date: str
     name: str
     crew: List[CrewMember]
