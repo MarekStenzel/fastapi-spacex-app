@@ -76,7 +76,7 @@ class SpaceXLaunchInfo(BaseModel):
     tdb: Optional[bool]
     net: Optional[bool]
     window: Optional[float]
-    rocket: SpaceXRocketInfo
+    rocket: Optional[SpaceXRocketInfo]
     success: Optional[bool]
     failures: Optional[List[Failure]]
     upcoming: bool
