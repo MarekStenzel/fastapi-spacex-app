@@ -33,33 +33,6 @@ class Links(BaseModel):
     article: Optional[str]
     wikipedia: Optional[str]
 
-class SpaceXLaunchInfo(BaseModel):
-    flight_number: int
-    name: str
-    date_utc: str
-    date_unix: float
-    date_local: str
-    date_precision: str
-    static_fire_date_utc: Optional[str]
-    static_fire_date_unix: Optional[float]
-    tdb: Optional[bool]
-    net: Optional[bool]
-    window: Optional[float]
-    rocket: Optional[UUID1]
-    success: Optional[bool]
-    failures: Optional[List[Failure]]
-    upcoming: bool
-    details: Optional[str]
-    fairings: Optional[Fairings]
-    crew: Optional[List[UUID1]]
-    ships: Optional[List[UUID1]]
-    capsules: Optional[List[UUID1]]
-    payloads: Optional[List[UUID1]]
-    launchpad: Optional[UUID1]
-    cores: Optional[List[Core]]
-    links: Optional[Links]
-    auto_update: Optional[bool]
-
 class SpaceXCrewInfo(BaseModel):
     name: Optional[str] = None
     status: str
@@ -90,6 +63,33 @@ class SpaceXRocketInfo(BaseModel):
     flickr_images: List[str]
     wikipedia: Optional[str] = None
     description: Optional[str] = None
+
+class SpaceXLaunchInfo(BaseModel):
+    flight_number: int
+    name: str
+    date_utc: str
+    date_unix: float
+    date_local: str
+    date_precision: str
+    static_fire_date_utc: Optional[str]
+    static_fire_date_unix: Optional[float]
+    tdb: Optional[bool]
+    net: Optional[bool]
+    window: Optional[float]
+    rocket: SpaceXRocketInfo
+    success: Optional[bool]
+    failures: Optional[List[Failure]]
+    upcoming: bool
+    details: Optional[str]
+    fairings: Optional[Fairings]
+    crew: Optional[List[UUID1]]
+    ships: Optional[List[UUID1]]
+    capsules: Optional[List[UUID1]]
+    payloads: Optional[List[UUID1]]
+    launchpad: Optional[UUID1]
+    cores: Optional[List[Core]]
+    links: Optional[Links]
+    auto_update: Optional[bool]
 
 class FlightRequest(BaseModel):
     flightId: str

@@ -3,7 +3,7 @@ from typing import Dict
 from fastapi import FastAPI, HTTPException
 from cachetools import TTLCache
 
-from apiservice import get_spacex_launch_info, get_spacex_rocket_info, get_spacex_crew_info_table
+from apiservice import get_spacex_launch_info, get_spacex_crew_info_table
 from timeservice import get_time_in_space_from_crew_member, get_warsaw_time
 from models import FlightResponse, FlightRequest
 
@@ -52,22 +52,15 @@ def get_flight_info(request_body: FlightRequest) -> Dict:
 
         crew.append(crew_selected_info)
 
-    rocket_id = spacex_launch_info['rocket']
-    rocket_info = get_spacex_rocket_info(rocket_id)
-
-    if rocket_info is None:
-        raise HTTPException(status_code=404,
-                            detail=f"SpaceX rocket info not found for rocket ID: {rocket_id}")
-
     data = {
         "is_success": spacex_launch_info['success'],
         "date": get_warsaw_time(spacex_launch_info['date_unix']),
         "name": spacex_launch_info['name'],
         "crew": crew,
         "rocket": {
-            "rocket_name": rocket_info['name'],
-            "first_flight": rocket_info['first_flight'],
-            "company": rocket_info['company']
+            "rocket_name": spacex_launch_info['rocket']['name'],
+            "first_flight": spacex_launch_info['rocket']['first_flight'],
+            "company": spacex_launch_info['rocket']['company']
         }
     }
 
