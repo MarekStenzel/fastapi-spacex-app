@@ -1,5 +1,5 @@
 from typing import List, Optional
-from models import SpaceXLaunchInfo, SpaceXCrewInfo, SpaceXRocketInfo
+from models import SpaceXLaunchInfo, SpaceXCrewInfo
 
 import requests
 
