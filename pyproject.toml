@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "spacexapi"
+version = "0.1.0"
+description = "This FastAPI application provides information about SpaceX flights, including details about launches, crew members, and rockets."
+authors = ["stenzelmarek <stenzelmarek@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = {extras = ["all"], version = "^0.109.0"}
+uvicorn = {extras = ["standard"], version = "^0.27.0.post1"}
+pydantic = "^2.6.0"
+requests = "^2.31.0"
+bs4 = "^0.0.2"
+cachetools = "^5.3.2"
+pytz = "^2024.1"
+pylint = "^3.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
