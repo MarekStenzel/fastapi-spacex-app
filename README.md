@@ -11,7 +11,7 @@ This FastAPI application provides information about SpaceX flights, including de
 
 Clone the repository:
 
-`git clone https://github.com/markos/fastapi-spacex-app.git`
+`git clone https://github.com/MarekStenzel/fastapi-spacex-app.git`
 
 Change directory to the project folder:
 
